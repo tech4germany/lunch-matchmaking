@@ -1,0 +1,7 @@
+{
+  "name": "t4g-lunch-matchmaking",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node script.js"
+  }
+}
