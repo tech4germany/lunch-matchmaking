@@ -1,5 +1,5 @@
 const readlines = require('n-readlines');
-const teams = require('./teams.json').teams;
+// const teams = require('./teams.json').teams;
 
 people = {};
 let line;
