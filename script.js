@@ -7,9 +7,10 @@ let line;
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
     people.push({
-        "in-team": parts[0],
-        "name": parts[1],
-        "discipline": parts[2].substr(0, parts[2].length - 1) // strip away new line character
+        "in-team": Number(parts[0]),
+        "id": Number(parts[1]),
+        "name": parts[2],
+        "discipline": parts[3].substr(0, parts[3].length - 1) // strip away new line character
     });
 }
 
