@@ -1,0 +1,40 @@
+{
+    "teams": [
+        {
+            "id": 0,
+            "name": "Open Data Portal"
+        },
+        {
+            "id": 1,
+            "name": "Online-Videoberatung"
+        },
+        {
+            "id": 2,
+            "name": "Pflanzenschutzmittelzulassungsdaten"
+        },
+        {
+            "id": 3,
+            "name": "Wegweiser bei Diskriminierung"
+        },
+        {
+            "id": 4,
+            "name": "Steuerlotse für Rentnerinnen und Rentner"
+        },
+        {
+            "id": 5,
+            "name": "Digitaler Antrag für das Forschungsdatenzentrum"
+        },
+        {
+            "id": 6,
+            "name": "Chatbot"
+        },
+        {
+            "id": 7,
+            "name": "Rechtsinformationsportal"
+        },
+        {
+            "id": 8,
+            "name": "Tech4Germany"
+        }
+    ]
+}
