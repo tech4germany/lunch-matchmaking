@@ -1,18 +1,19 @@
 const readlines = require('n-readlines');
 const teams = require('./teams.json').teams;
 
-people = [];
+people = {};
 let line;
 let liner = new readlines('people.csv');
 
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
-    people.push({
-        "in-team": Number(parts[0]),
-        "id": Number(parts[1]),
+    let id = Number(parts[1]);
+    people[id] = {
+        "in_team": Number(parts[0]),
+        "id": id,
         "name": parts[2],
         "discipline": parts[3].substr(0, parts[3].length - 1) // strip away new line character
-    });
+    };
 }
 
 pairsAlreadyMet = [];
