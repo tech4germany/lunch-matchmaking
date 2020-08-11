@@ -1,8 +1,9 @@
-const liner = new (require('n-readlines'))('people.csv');
+const readlines = require('n-readlines');
 const teams = require('./teams.json').teams;
 
 people = [];
 let line;
+let liner = new readlines('people.csv');
 
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
@@ -14,4 +15,18 @@ while (line = liner.next()) {
     });
 }
 
+pairsAlreadyMet = [];
+
+liner = new readlines('lunch1.csv');
+while (line = liner.next()) {
+    let parts = line.toString('utf8').split(',');
+    let id1 = Number(parts[0]);
+    let id2 = Number(parts[1]);
+    pairsAlreadyMet.push({
+        "id1": id1,
+        "id2": id2
+    });
+}
+
+console.log(pairsAlreadyMet);
 console.log(people);
