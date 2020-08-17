@@ -1,9 +1,9 @@
 const readlines = require('n-readlines');
-// const teams = require('./teams.json').teams;
+// const teams = require('input/teams.json').teams;
 
 people = {};
 let line;
-let liner = new readlines('people.csv');
+let liner = new readlines('input/people.csv');
 
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
@@ -17,7 +17,7 @@ while (line = liner.next()) {
     };
 }
 
-liner = new readlines('lunch1.csv');
+liner = new readlines('input/lunch1.csv');
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
     for (let i = 0; i < parts.length; i ++) {
