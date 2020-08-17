@@ -62,7 +62,9 @@ for (let j = 0; j < 20; j ++) {
     unpairedPeopleIds.splice(0, 1);
 }
 
-console.log(pairs);
+for (let i = 0; i < pairs.length; i++) {
+    console.log(people[pairs[i][0]].name + " & " + people[pairs[i][1]].name);
+}
 
 // TEST
 
