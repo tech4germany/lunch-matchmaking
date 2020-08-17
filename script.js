@@ -7,12 +7,12 @@ let liner = new readlines('people.csv');
 
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
-    let id = Number(parts[1]);
+    let id = parts[2]; // first name with first char of last name if necessary
     people[id] = {
         "in_team": Number(parts[0]),
         "id": id,
-        "name": parts[2],
-        "discipline": parts[3].substr(0, parts[3].length - 1), // strip away new line character
+        "name": parts[3],
+        "discipline": parts[4].substr(0, parts[4].length - 1), // strip away new line character
         "already_met_with": []
     };
 }
