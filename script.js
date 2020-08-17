@@ -17,18 +17,27 @@ while (line = liner.next()) {
     };
 }
 
-liner = new readlines('input/lunch1.csv');
-while (line = liner.next()) {
-    let parts = line.toString('utf8').split(',');
-    for (let i = 0; i < parts.length; i ++) {
-        let idSelf = parts[i];
-        for (let j = i + 1; j < parts.length; j ++) {
-            let idOther = parts[j];
-            people[idSelf].already_met_with.push(idOther);
-            people[idOther].already_met_with.push(idSelf);
+const importBlockers = csvFile => {
+    liner = new readlines(csvFile);
+    while (lineRaw = liner.next()) {
+        line = lineRaw.toString('utf8');
+        if (!line || line.length === 0 || line.charAt(0) === '#') {
+            continue;
+        }
+        let parts = line.split(',');
+        for (let i = 0; i < parts.length; i ++) {
+            let idSelf = parts[i];
+            for (let j = i + 1; j < parts.length; j ++) {
+                let idOther = parts[j];
+                people[idSelf].already_met_with.push(idOther);
+                people[idOther].already_met_with.push(idSelf);
+            }
         }
     }
-}
+};
+
+importBlockers('input/blockers/other.csv');
+importBlockers('input/blockers/lunch1.csv');
 
 const randomIntFromInterval = (min, max) => { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -62,12 +71,12 @@ for (let j = 0; j < 20; j ++) {
     unpairedPeopleIds.splice(0, 1);
 }
 
+// pretty print matches
 for (let i = 0; i < pairs.length; i++) {
     console.log(people[pairs[i][0]].name + " & " + people[pairs[i][1]].name);
 }
 
 // TEST
-
 for (let i = 0; i < pairs.length; i++) {
     let p1 = people[pairs[i][0]];
     let p2 = people[pairs[i][1]];
