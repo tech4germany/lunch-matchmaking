@@ -1,4 +1,4 @@
-# T4G-lunch-matchmaking :pizza: :handshake:
+# Tech4Germany Lunch Matchmaking :pizza: :handshake:
 
 A little script to match people for lunch that are:
 - not in the same team
