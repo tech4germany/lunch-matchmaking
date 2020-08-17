@@ -64,6 +64,7 @@ for (let j = 0; j < 20; j ++) {
     }
     let p2id = suitablePersons[randomIntFromInterval(0, suitablePersons.length - 1)];
 
+    // TODO make the loop better so that these undefined-checks are not necessary
     if (p1id !== undefined && p2id !== undefined) {
         pairs.push([p1id, p2id]);
     }
