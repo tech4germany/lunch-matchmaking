@@ -1,3 +1,4 @@
+const fs = require('fs');
 const readlines = require('n-readlines');
 // const teams = require('input/teams.json').teams;
 
@@ -72,9 +73,16 @@ for (let j = 0; j < 20; j ++) {
 }
 
 // pretty print matches
+let csvContent = '';
 for (let i = 0; i < pairs.length; i++) {
-    console.log(people[pairs[i][0]].name + " & " + people[pairs[i][1]].name);
+    let id1 = pairs[i][0];
+    let id2 = pairs[i][1];
+    console.log(people[id1].name + " & " + people[id2].name);
+    csvContent += id1 + ',' + id2 + '\n';
 }
+
+// write them out as next lunch.csv
+fs.writeFile('input/blockers/lunch2.csv', csvContent, err => {});
 
 // TEST
 for (let i = 0; i < pairs.length; i++) {
