@@ -36,6 +36,7 @@ const randomIntFromInterval = (min, max) => { // min and max included
 
 let unpairedPeopleIds = Object.keys(people);
 let pairs = [];
+let pairIDs = [];
 
 for (let j = 0; j < 20; j ++) {
     let p1id = unpairedPeopleIds[0];
@@ -56,6 +57,7 @@ for (let j = 0; j < 20; j ++) {
 
     if (p1id !== undefined && p2id !== undefined) {
         pairs.push([people[p1id].name, people[p2id].name]);
+        pairIDs.push([p1id, p2id]);
     }
 
     unpairedPeopleIds.splice(unpairedPeopleIds.indexOf(p2id), 1);
@@ -63,3 +65,13 @@ for (let j = 0; j < 20; j ++) {
 }
 
 console.log(pairs);
+
+// TEST
+
+for (let i = 0; i < pairIDs.length; i++) {
+    let p1 = people[pairIDs[i][0]];
+    let p2 = people[pairIDs[i][1]];
+    if (p1.in_team === p2.in_team || p1.already_met_with.includes(p2.id) || p1.already_met_with.includes(p2.id)) {
+        console.log("ERROR: ", p1.id, p2.id);
+    }
+}
