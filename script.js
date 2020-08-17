@@ -92,3 +92,4 @@ for (let i = 0; i < pairs.length; i++) {
         console.log("ERROR: ", p1.id, p2.id);
     }
 }
+// TODO test if everyone is in exactly one pair
