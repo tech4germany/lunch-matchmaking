@@ -20,16 +20,13 @@ while (line = liner.next()) {
 liner = new readlines('lunch1.csv');
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
-    let id1 = Number(parts[0]);
-    let id2 = Number(parts[1]);
-    people[id1].already_met_with.push(id2);
-    people[id2].already_met_with.push(id1);
-    if (parts.length > 2) {
-        let id3 = Number(parts[2]);
-        people[id1].already_met_with.push(id3);
-        people[id2].already_met_with.push(id3);
-        people[id3].already_met_with.push(id1);
-        people[id3].already_met_with.push(id2);
+    for (let i = 0; i < parts.length; i ++) {
+        let idSelf = parts[i];
+        for (let j = i + 1; j < parts.length; j ++) {
+            let idOther = parts[j];
+            people[idSelf].already_met_with.push(idOther);
+            people[idOther].already_met_with.push(idSelf);
+        }
     }
 }
 
