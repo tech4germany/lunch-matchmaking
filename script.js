@@ -14,7 +14,8 @@ while (line = liner.next()) {
         "id": id,
         "name": parts[3],
         "discipline": parts[4].substr(0, parts[4].length - 1), // strip away new line character
-        "already_met_with": []
+        "already_met_with": [],
+        "testcount": 0
     };
 }
 
@@ -86,12 +87,22 @@ for (let i = 0; i < pairs.length; i++) {
 // write them out as next lunch.csv
 fs.writeFile('input/blockers/lunch3.csv', csvContent, err => {});
 
-// TEST
+
+// TESTS ---------------------------------------------------------
+
 for (let i = 0; i < pairs.length; i++) {
     let p1 = people[pairs[i][0]];
     let p2 = people[pairs[i][1]];
     if (p1.in_team === p2.in_team || p1.already_met_with.includes(p2.id) || p1.already_met_with.includes(p2.id)) {
         console.log("ERROR: ", p1.id, p2.id);
     }
+    p1.testcount += 1;
+    p2.testcount += 1;
 }
-// TODO test if everyone is in exactly one pair
+
+for (let i = 0; i < Object.keys(people).length; i++) {
+    let person = people[Object.keys(people)[i]];
+    if (person.testcount !== 1) {
+        console.log("Testcount != 1: ", person);
+    }
+}
