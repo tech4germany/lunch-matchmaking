@@ -107,3 +107,16 @@ for (let i = 0; i < peopleIDs.length; i++) {
         console.log("Testcount != 1: ", person);
     }
 }
+
+// COMBINATORICS ---------------------------------------------------------
+
+let allPairs = [];
+for (let i = 0; i < peopleIDs.length; i++) {
+    for (let j = i + 1; j < peopleIDs.length; j++) {
+        let p1 = people[peopleIDs[i]];
+        let p2 = people[peopleIDs[j]];
+        allPairs.push([p1.id, p2.id]);
+    }
+}
+
+console.log(allPairs.length + " groups of 2 with " + peopleIDs.length + " people");
