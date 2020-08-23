@@ -100,8 +100,9 @@ for (let i = 0; i < pairs.length; i++) {
     p2.testcount += 1;
 }
 
-for (let i = 0; i < Object.keys(people).length; i++) {
-    let person = people[Object.keys(people)[i]];
+let peopleIDs = Object.keys(people);
+for (let i = 0; i < peopleIDs.length; i++) {
+    let person = people[peopleIDs[i]];
     if (person.testcount !== 1) {
         console.log("Testcount != 1: ", person);
     }
