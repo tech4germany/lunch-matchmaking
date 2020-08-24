@@ -41,6 +41,7 @@ const importBlockers = csvFile => {
 importBlockers('input/blockers/other.csv');
 importBlockers('input/blockers/lunch1.csv');
 importBlockers('input/blockers/lunch2.csv');
+importBlockers('input/blockers/lunch3.csv');
 
 const randomIntFromInterval = (min, max) => { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -85,7 +86,7 @@ for (let i = 0; i < pairs.length; i++) {
 }
 
 // write them out as next lunch.csv
-fs.writeFile('input/blockers/lunch3.csv', csvContent, err => {});
+fs.writeFile('input/blockers/lunch4.csv', csvContent, err => {});
 
 
 // TESTS ---------------------------------------------------------
