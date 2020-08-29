@@ -50,6 +50,24 @@ const randomIntFromInterval = (min, max) => { // min and max included
 let ungroupedPeople = Object.keys(people);
 let groups = [];
 
+const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
+    let suitablePeople = [];
+    for (let i = 0; i < ungroupedPeople.length; i++) {
+        let candidate = people[ungroupedPeople[i]];
+        let candidateIsSuitable = true;
+        for (let j = 0; j < peopleAlreadyInGroup; j++) {
+            let pInGroup = peopleAlreadyInGroup[j];
+            if (candidate.already_met_with.includes(pInGroup) || candidate.in_team === pInGroup.in_team) {
+                candidateIsSuitable = false;
+            }
+        }
+        if (candidateIsSuitable) {
+            suitablePeople.push(candidate.id);
+        }
+    }
+    return suitablePeople[randomIntFromInterval(0, suitablePeople.length - 1)];
+};
+
 for (let j = 0; j < 20; j ++) {
     let p1id = ungroupedPeople[0];
     let suitablePeople = [];
