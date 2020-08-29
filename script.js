@@ -52,7 +52,7 @@ let groups = [];
 
 for (let j = 0; j < 20; j ++) {
     let p1id = ungroupedPeople[0];
-    let suitablePersons = [];
+    let suitablePeople = [];
     for (let i = 1; i < ungroupedPeople.length; i++) {
         let p2IdToCheck = ungroupedPeople[i];
         let p1 = people[p1id];
@@ -63,9 +63,9 @@ for (let j = 0; j < 20; j ++) {
         if (p1.in_team === p2.in_team) {
             continue;
         }
-        suitablePersons.push(p2IdToCheck);
+        suitablePeople.push(p2IdToCheck);
     }
-    let p2id = suitablePersons[randomIntFromInterval(0, suitablePersons.length - 1)];
+    let p2id = suitablePeople[randomIntFromInterval(0, suitablePeople.length - 1)];
 
     // TODO make the loop better so that these undefined-checks are not necessary
     if (p1id !== undefined && p2id !== undefined) {
