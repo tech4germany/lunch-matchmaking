@@ -67,42 +67,34 @@ const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
             suitablePeople.push(candidate.id);
         }
     }
-    return suitablePeople[randomIntFromInterval(0, suitablePeople.length - 1)];
+    return getRandomElementFromArray(suitablePeople);
 };
 
-for (let j = 0; j < 20; j ++) {
-    let p1id = ungroupedPeople[0];
-    let suitablePeople = [];
-    for (let i = 1; i < ungroupedPeople.length; i++) {
-        let p2IdToCheck = ungroupedPeople[i];
-        let p1 = people[p1id];
-        if (p1.already_met_with.includes(p2IdToCheck)) {
-            continue;
-        }
-        let p2 = people[p2IdToCheck];
-        if (p1.in_team === p2.in_team) {
-            continue;
-        }
-        suitablePeople.push(p2IdToCheck);
-    }
-    let p2id = getRandomElementFromArray(suitablePeople);
+const n = Object.keys(people).length;
+const groupSize = 2;
 
-    // TODO make the loop better so that these undefined-checks are not necessary
-    if (p1id !== undefined && p2id !== undefined) {
-        groups.push([p1id, p2id]);
+for (let j = 0; j < n / groupSize; j ++) { // works only if n can be divided cleanly by groupSize
+    let newGroup = [getRandomElementFromArray(ungroupedPeople)];
+    for (let k = 0; k < groupSize - 1; k++) {
+        newGroup.push(findSuitableAdditionToGroup(newGroup));
     }
-
-    ungroupedPeople.splice(ungroupedPeople.indexOf(p2id), 1);
-    ungroupedPeople.splice(0, 1);
+    groups.push(newGroup);
+    newGroup.map(id => ungroupedPeople.splice(ungroupedPeople.indexOf(id), 1));
 }
 
 // pretty print matches
 let csvContent = '';
 for (let i = 0; i < groups.length; i++) {
-    let id1 = groups[i][0];
-    let id2 = groups[i][1];
-    console.log(people[id1].name + " & " + people[id2].name);
-    csvContent += id1 + ',' + id2 + '\n';
+    let group = groups[i];
+    let csvRow = '';
+    let printRow = '';
+    for (let j = 0; j < group.length; j++) {
+        let groupMember = group[j];
+        csvRow += groupMember + ',';
+        printRow += people[groupMember].name + " & ";
+    }
+    console.log(printRow.substring(0, printRow.length - 3));
+    csvContent += csvRow.substring(0, csvRow.length - 1) + '\n';
 }
 
 // write them out as next lunch.csv
