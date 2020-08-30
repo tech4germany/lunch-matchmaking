@@ -59,7 +59,7 @@ const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
         let candidateIsSuitable = true;
         for (let j = 0; j < peopleAlreadyInGroup; j++) {
             let pInGroup = peopleAlreadyInGroup[j];
-            if (candidate.already_met_with.includes(pInGroup) || candidate.in_team === pInGroup.in_team) {
+            if (candidate.id === pInGroup.id || candidate.already_met_with.includes(pInGroup) || candidate.in_team === pInGroup.in_team) {
                 candidateIsSuitable = false;
             }
         }
