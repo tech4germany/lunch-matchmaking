@@ -105,13 +105,25 @@ fs.writeFile('input/blockers/lunch4.csv', csvContent, err => {});
 // TESTS ---------------------------------------------------------
 
 for (let i = 0; i < groups.length; i++) {
-    let p1 = people[groups[i][0]];
-    let p2 = people[groups[i][1]];
-    if (p1.in_team === p2.in_team || p1.already_met_with.includes(p2.id) || p1.already_met_with.includes(p2.id)) {
-        console.log("ERROR: ", p1.id, p2.id);
+    let group = groups[i];
+    for (let j = 0; j < group.length; j++) {
+        let groupMember1 = people[group[j]];
+        if (groupMember1 === undefined) {
+            continue;
+        }
+        groupMember1.testcount += 1;
+        for (let k = j + 1; k < group.length; k++) {
+            let groupMember2 = people[group[k]];
+            if (groupMember2 === undefined) {
+                continue;
+            }
+            if (groupMember1.in_team === groupMember2.in_team ||
+                groupMember1.already_met_with.includes(groupMember2.id) ||
+                groupMember2.already_met_with.includes(groupMember1.id)) {
+                console.log("ERROR: " + groupMember1.id + ' and ' + groupMember2.id + ' in group ' + group);
+            }
+        }
     }
-    p1.testcount += 1;
-    p2.testcount += 1;
 }
 
 let peopleIDs = Object.keys(people);
