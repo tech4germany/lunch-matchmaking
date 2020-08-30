@@ -91,7 +91,8 @@ for (let i = 0; i < groups.length; i++) {
     for (let j = 0; j < group.length; j++) {
         let groupMember = group[j];
         csvRow += groupMember + ',';
-        printRow += people[groupMember].name + " & ";
+        let name = people[groupMember] ? people[groupMember].name : 'UNDEFINED';
+        printRow += name + " & ";
     }
     console.log(printRow.substring(0, printRow.length - 3));
     csvContent += csvRow.substring(0, csvRow.length - 1) + '\n';
