@@ -127,11 +127,15 @@ for (let i = 0; i < groups.length; i++) {
 }
 
 let peopleIDs = Object.keys(people);
+let report = '';
 for (let i = 0; i < peopleIDs.length; i++) {
     let person = people[peopleIDs[i]];
     if (person.testcount !== 1) {
-        console.log("Testcount != 1: ", person);
+        report += person.id + ', ';
     }
+}
+if (report) {
+    console.log('\nERROR - people not in a group: ' + report.substring(0, report.length - 2));
 }
 
 // COMBINATORICS ---------------------------------------------------------
