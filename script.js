@@ -57,9 +57,9 @@ const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
     for (let i = 0; i < ungroupedPeople.length; i++) {
         let candidate = people[ungroupedPeople[i]];
         let candidateIsSuitable = true;
-        for (let j = 0; j < peopleAlreadyInGroup; j++) {
-            let pInGroup = peopleAlreadyInGroup[j];
-            if (candidate.id === pInGroup.id || candidate.already_met_with.includes(pInGroup) || candidate.in_team === pInGroup.in_team) {
+        for (let j = 0; j < peopleAlreadyInGroup.length; j++) {
+            let pInGroup = people[peopleAlreadyInGroup[j]];
+            if (candidate.id === pInGroup.id || candidate.already_met_with.includes(pInGroup.id) || candidate.in_team === pInGroup.in_team) {
                 candidateIsSuitable = false;
             }
         }
