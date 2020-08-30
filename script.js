@@ -145,4 +145,4 @@ for (let i = 0; i < peopleIDs.length; i++) {
     }
 }
 
-console.log(allPairs.length + " groups of 2 with " + peopleIDs.length + " people");
+console.log("\n\n" + allPairs.length + " groups of 2 with " + peopleIDs.length + " people");
