@@ -71,7 +71,7 @@ const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
 };
 
 const n = Object.keys(people).length;
-const groupSize = 2;
+const groupSize = 3;
 
 for (let j = 0; j < n / groupSize; j ++) { // works only if n can be divided cleanly by groupSize
     let newGroup = [getRandomElementFromArray(ungroupedPeople)];
@@ -99,8 +99,7 @@ for (let i = 0; i < groups.length; i++) {
 }
 
 // write them out as next lunch.csv
-fs.writeFile('input/blockers/lunch4.csv', csvContent, err => {});
-
+fs.writeFile('input/blockers/groupsOf3.csv', csvContent, err => {});
 
 // TESTS ---------------------------------------------------------
 
