@@ -140,6 +140,7 @@ if (report) {
 
 // COMBINATORICS ---------------------------------------------------------
 
+/*
 let allPairs = [];
 for (let i = 0; i < peopleIDs.length; i++) {
     for (let j = i + 1; j < peopleIDs.length; j++) {
@@ -148,5 +149,5 @@ for (let i = 0; i < peopleIDs.length; i++) {
         allPairs.push([p1.id, p2.id]);
     }
 }
-
 console.log("\n\n" + allPairs.length + " groups of 2 with " + peopleIDs.length + " people");
+*/
