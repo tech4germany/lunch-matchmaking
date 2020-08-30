@@ -43,8 +43,10 @@ importBlockers('input/blockers/lunch1.csv');
 importBlockers('input/blockers/lunch2.csv');
 importBlockers('input/blockers/lunch3.csv');
 
-const randomIntFromInterval = (min, max) => { // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min);
+const getRandomElementFromArray = array => { // min and max included
+    let min = 0;
+    let max = array.length - 1;
+    return array[Math.floor(Math.random() * (max - min + 1) + min)]
 };
 
 let ungroupedPeople = Object.keys(people);
@@ -83,7 +85,7 @@ for (let j = 0; j < 20; j ++) {
         }
         suitablePeople.push(p2IdToCheck);
     }
-    let p2id = suitablePeople[randomIntFromInterval(0, suitablePeople.length - 1)];
+    let p2id = getRandomElementFromArray(suitablePeople);
 
     // TODO make the loop better so that these undefined-checks are not necessary
     if (p1id !== undefined && p2id !== undefined) {
