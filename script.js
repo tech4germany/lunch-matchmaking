@@ -13,7 +13,8 @@ while (line = liner.next()) {
         "in_team": Number(parts[0]),
         "id": id,
         "name": parts[3],
-        "discipline": parts[4].substr(0, parts[4].length - 1), // strip away new line character
+        "gender": parts[4],
+        "discipline": parts[5].substr(0, parts[4].length - 1), // strip away new line character
         "already_met_with": [],
         "testcount": 0
     };
