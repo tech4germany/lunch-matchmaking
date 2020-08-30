@@ -6,16 +6,20 @@ people = {};
 let line;
 let liner = new readlines('input/people.csv');
 
+let ignoreTeams = [8];
+
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
     let id = parts[2]; // first name with first char of last name if necessary
+    let team = Number(parts[0]);
     people[id] = {
-        "in_team": Number(parts[0]),
+        "in_team": team,
         "id": id,
         "name": parts[3],
         "gender": parts[4],
         "discipline": parts[5].substr(0, parts[4].length - 1), // strip away new line character
         "already_met_with": [],
+        "ignore": ignoreTeams.includes(team),
         "testcount": 0
     };
 }
@@ -50,7 +54,7 @@ const getRandomElementFromArray = array => { // min and max included
     return array[Math.floor(Math.random() * (max - min + 1) + min)]
 };
 
-let ungroupedPeople = Object.keys(people);
+let ungroupedPeople = Object.keys(people).filter(id => !people[id].ignore);
 let groups = [];
 const groupsMustBeSameGender = true;
 
@@ -143,7 +147,7 @@ for (let i = 0; i < peopleIDs.length; i++) {
     }
 }
 if (report) {
-    console.log('\nERROR - people not in a group: ' + report.substring(0, report.length - 2));
+    console.log('\n' + (report.split(',').length - 1) + ' people not in a group: ' + report.substring(0, report.length - 2));
 }
 
 // COMBINATORICS ---------------------------------------------------------
