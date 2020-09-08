@@ -125,7 +125,7 @@ for (let i = 0; i < groups.length; i++) {
 }
 
 // write them out as next lunch.csv
-//fs.writeFile('input/blockers/groupsOf3.csv', csvContent, err => {});
+fs.writeFile('input/blockers/lunch4.csv', csvContent, err => {});
 
 // TESTS ---------------------------------------------------------
 
