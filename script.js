@@ -48,6 +48,7 @@ importBlockers('input/blockers/lunch1.csv');
 importBlockers('input/blockers/lunch2.csv');
 importBlockers('input/blockers/lunch3.csv');
 importBlockers('input/blockers/rooms.csv');
+importBlockers('input/blockers/lunch4.csv');
 
 const getRandomElementFromArray = array => { // min and max included
     let min = 0;
@@ -125,7 +126,7 @@ for (let i = 0; i < groups.length; i++) {
 }
 
 // write them out as next lunch.csv
-fs.writeFile('input/blockers/lunch4.csv', csvContent, err => {});
+fs.writeFile('input/blockers/lunch5.csv', csvContent, err => {});
 
 // TESTS ---------------------------------------------------------
 
