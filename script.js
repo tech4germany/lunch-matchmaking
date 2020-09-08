@@ -86,7 +86,7 @@ const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
 const n = Object.keys(people).length;
 // const groupSize = 3;
 let groupSizes = [];
-const groupsOf2 = 18;
+const groupsOf2 = 20;
 const groupsOf3 = 0;
 let checksum = 0;
 for (let i = 0; i < groupsOf2; i ++) {
