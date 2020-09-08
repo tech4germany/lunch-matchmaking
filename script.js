@@ -6,7 +6,7 @@ people = {};
 let line;
 let liner = new readlines('input/people.csv');
 
-let ignoreTeams = [8];
+let ignoreTeams = [];
 
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
@@ -57,7 +57,7 @@ const getRandomElementFromArray = array => { // min and max included
 
 let ungroupedPeople = Object.keys(people).filter(id => !people[id].ignore);
 let groups = [];
-const groupsMustBeSameGender = true;
+const groupsMustBeSameGender = false;
 
 const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
     let suitablePeople = [];
@@ -85,8 +85,8 @@ const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
 const n = Object.keys(people).length;
 // const groupSize = 3;
 let groupSizes = [];
-const groupsOf2 = 4;
-const groupsOf3 = 8;
+const groupsOf2 = 18;
+const groupsOf3 = 0;
 let checksum = 0;
 for (let i = 0; i < groupsOf2; i ++) {
     groupSizes.push(2);
