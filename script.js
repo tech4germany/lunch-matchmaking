@@ -128,6 +128,8 @@ for (let i = 0; i < groups.length; i++) {
 // write them out as next lunch.csv
 fs.writeFile('input/blockers/lunch5.csv', csvContent, err => {});
 
+// TODO try bipartite matching, max flow, Ford-Fulkerson, via @lambdapioneer
+
 // TESTS ---------------------------------------------------------
 
 for (let i = 0; i < groups.length; i++) {
