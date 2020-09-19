@@ -128,7 +128,14 @@ for (let i = 0; i < groups.length; i++) {
 // write them out as next lunch.csv
 fs.writeFile('input/blockers/lunch5.csv', csvContent, err => {});
 
-// TODO try bipartite matching, max flow, Ford-Fulkerson, via @lambdapioneer
+// TODO via @lambdapioneer: try bipartite matching, max flow, Ford-Fulkerson.
+//      Could be great to visualize a slowed-down match-making for everyone to
+//      see it happening at a specified time and URL
+
+// TODO @jerdesign suggested to add a factor that reduces the likelihood of getting
+//      matched with people that ones teammates already met with. One way to achieve
+//      achieve this, could be to add people that ones teammates have NOT met with
+//      already multiple times in the suitablePeople-array within findSuitableAdditionToGroup()
 
 // TESTS ---------------------------------------------------------
 
