@@ -50,6 +50,7 @@ importBlockers('input/blockers/lunch3.csv');
 importBlockers('input/blockers/rooms.csv');
 importBlockers('input/blockers/lunch4.csv');
 importBlockers('input/blockers/lunch5.csv');
+importBlockers('input/blockers/lunch6.csv');
 
 const getRandomElementFromArray = array => { // min and max included
     let min = 0;
@@ -127,7 +128,7 @@ for (let i = 0; i < groups.length; i++) {
 }
 
 // write them out as next lunch.csv
-fs.writeFile('input/blockers/lunch6.csv', csvContent, err => {});
+fs.writeFile('input/blockers/lunch7.csv', csvContent, err => {});
 
 // TODO via @lambdapioneer: try bipartite matching, max flow, Ford-Fulkerson.
 //      Could be great to visualize a slowed-down match-making for everyone to
