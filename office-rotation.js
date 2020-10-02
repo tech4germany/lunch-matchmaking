@@ -20,12 +20,28 @@ for (let i = 0; i < n; i++) {
         let group = [];
         for (let j = 0; j < teamIDs.length; j++) {
             if (arr[j] === '1') {
-                group.push(teamIDs[j])
+                group.push(teamIDs[j]);
             }
         }
         groupsOfTargetGroupSize.push(group);
     }
 }
 
-console.log(groupsOfTargetGroupSize);
-console.log(groupsOfTargetGroupSize.length);
+let cohorts = [];
+
+for (let i = 0; i < groupsOfTargetGroupSize.length / 2; i ++) {
+    // why is this the case?? but it is correct
+    let group = groupsOfTargetGroupSize[i];
+    let counterGroup = groupsOfTargetGroupSize[groupsOfTargetGroupSize.length - 1 - i];
+    cohorts.push([group, counterGroup]);
+}
+
+// TEST
+for (let i = 0; i < cohorts.length; i ++) {
+    // via stackoverflow.com/a/33034768
+    if (cohorts[i][0].filter(x => cohorts[i][1].includes(x)).length > 0) {
+        console.log("TEST FAILED for ", cohorts[i]);
+    }
+}
+
+console.log(cohorts);
