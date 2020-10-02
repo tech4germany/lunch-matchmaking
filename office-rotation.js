@@ -60,7 +60,8 @@ while (line = liner.next()) {
     people[id] = {
         "in_team": team,
         "id": id,
-        "name": parts[3]
+        "name": parts[3],
+        "inseparable_from": []
     };
 }
 
@@ -71,6 +72,14 @@ while (lineRaw = liner.next()) {
         continue;
     }
     let parts = line.split(',');
+    for (let i = 0; i < parts.length; i ++) {
+        let idSelf = parts[i];
+        for (let j = i + 1; j < parts.length; j ++) {
+            let idOther = parts[j];
+            people[idSelf].inseparable_from.push(idOther);
+            people[idOther].inseparable_from.push(idSelf);
+        }
+    }
 }
 
 const getPeopleInGroup = _teamIDs => {
