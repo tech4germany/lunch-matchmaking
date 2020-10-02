@@ -36,10 +36,14 @@ for (let i = 0; i < groupsOfTargetGroupSize.length / 2; i ++) {
     cohorts.push([group, counterGroup]);
 }
 
+const getSharedElementsInArrays = (arr1, arr2) => {
+    return arr1.filter(x => arr2.includes(x));
+};
+
 // TEST
 for (let i = 0; i < cohorts.length; i ++) {
     // via stackoverflow.com/a/33034768
-    if (cohorts[i][0].filter(x => cohorts[i][1].includes(x)).length > 0) {
+    if (getSharedElementsInArrays(cohorts[i][0], cohorts[i][1]).length > 0) {
         console.log("TEST FAILED for ", cohorts[i]);
     }
 }
@@ -91,11 +95,21 @@ const getPeopleInGroup = _teamIDs => {
     return ppl;
 };
 
-for (let i = 0; i < 1; i ++) {
+for (let i = 0; i < cohorts.length; i ++) {
     let group1 = cohorts[i][0];
     let peopleInGroup1 = getPeopleInGroup(group1);
     let group2 = cohorts[i][0];
     let peopleInGroup2 = getPeopleInGroup(group2);
 
-    // TODO
+    let containsInseparables = false;
+    for (let j = 0; j < peopleInGroup1.length; j++) {
+        let inseparables = getSharedElementsInArrays(people[peopleInGroup1[j]].inseparable_from, peopleInGroup2);
+        if (inseparables.length > 0) {
+            containsInseparables = true;
+        }
+    }
+
+    if (!containsInseparables) {
+        console.log(cohorts[i][0], " <--> ", cohorts[i][1]);
+    }
 }
