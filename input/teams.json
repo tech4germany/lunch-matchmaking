@@ -2,35 +2,43 @@
     "teams": [
         {
             "id": 0,
-            "name": "Open Data Portal"
+            "name": "Open Data Portal",
+            "short": "ODP"
         },
         {
             "id": 1,
-            "name": "Online-Videoberatung"
+            "name": "Online-Videoberatung",
+            "short": "DRV"
         },
         {
             "id": 2,
-            "name": "Pflanzenschutzmittelzulassungsdaten"
+            "name": "Pflanzenschutzmittelzulassungsdaten",
+            "short": "PSM"
         },
         {
             "id": 3,
-            "name": "Wegweiser bei Diskriminierung"
+            "name": "Wegweiser bei Diskriminierung",
+            "short": "ADS"
         },
         {
             "id": 4,
-            "name": "Steuerlotse für Rentnerinnen und Rentner"
+            "name": "Steuerlotse für Rentnerinnen und Rentner",
+            "short": "Steuerlotse"
         },
         {
             "id": 5,
-            "name": "Digitaler Antrag für das Forschungsdatenzentrum"
+            "name": "Digitaler Antrag für das Forschungsdatenzentrum",
+            "short": "FDZ"
         },
         {
             "id": 6,
-            "name": "Chatbot"
+            "name": "Chatbot",
+            "short": "Chatbot"
         },
         {
             "id": 7,
-            "name": "Rechtsinformationsportal"
+            "name": "Rechtsinformationsportal",
+            "short": "RIP"
         },
         {
             "id": 8,
