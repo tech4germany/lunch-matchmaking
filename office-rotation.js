@@ -44,4 +44,49 @@ for (let i = 0; i < cohorts.length; i ++) {
     }
 }
 
-console.log(cohorts);
+// FILTER OUT BASED ON CRITERIA
+
+const readlines = require('n-readlines');
+people = {};
+let line;
+let liner = new readlines('input/people.csv');
+while (line = liner.next()) {
+    let parts = line.toString('utf8').split(',');
+    let id = parts[2]; // first name with first char of last name if necessary
+    let team = Number(parts[0]);
+    if (team >= 8) {
+        continue;
+    }
+    people[id] = {
+        "in_team": team,
+        "id": id,
+        "name": parts[3]
+    };
+}
+
+liner = new readlines('input/blockers/office-rotation-blocker.csv');
+while (lineRaw = liner.next()) {
+    line = lineRaw.toString('utf8');
+    if (!line || line.length === 0 || line.charAt(0) === '#') {
+        continue;
+    }
+    let parts = line.split(',');
+}
+
+const getPeopleInGroup = _teamIDs => {
+    let ppl = [];
+    for (let i = 0; i < _teamIDs.length; i ++) {
+        let teamIDinteger = teams[_teamIDs[i]].id;
+        ppl = [].concat.apply(ppl, Object.keys(people).filter(id => people[id].in_team === teamIDinteger));
+    }
+    return ppl;
+};
+
+for (let i = 0; i < 1; i ++) {
+    let group1 = cohorts[i][0];
+    let peopleInGroup1 = getPeopleInGroup(group1);
+    let group2 = cohorts[i][0];
+    let peopleInGroup2 = getPeopleInGroup(group2);
+
+    // TODO
+}
