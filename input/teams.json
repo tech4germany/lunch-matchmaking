@@ -3,50 +3,60 @@
         {
             "id": 0,
             "name": "Open Data Portal",
-            "short": "ODP"
+            "short": "ODP",
+            "group": 1
         },
         {
             "id": 1,
             "name": "Online-Videoberatung",
-            "short": "DRV"
+            "short": "DRV",
+            "group": 2
         },
         {
             "id": 2,
             "name": "Pflanzenschutzmittelzulassungsdaten",
-            "short": "PSM"
+            "short": "PSM",
+            "group": 2
         },
         {
             "id": 3,
             "name": "Wegweiser bei Diskriminierung",
-            "short": "ADS"
+            "short": "ADS",
+            "group": 1
         },
         {
             "id": 4,
             "name": "Steuerlotse für Rentnerinnen und Rentner",
-            "short": "Steuerlotse"
+            "short": "Steuerlotse",
+            "group": 2
         },
         {
             "id": 5,
             "name": "Digitaler Antrag für das Forschungsdatenzentrum",
-            "short": "FDZ"
+            "short": "FDZ",
+            "group": 1
         },
         {
             "id": 6,
             "name": "Chatbot",
-            "short": "Chatbot"
+            "short": "Chatbot",
+            "group": 2
         },
         {
             "id": 7,
             "name": "Rechtsinformationsportal",
-            "short": "RIP"
+            "short": "RIP",
+            "group": 1
         },
         {
             "id": 8,
-            "name": "4Germany Team"
+            "name": "4Germany Team",
+            "group": 0
         },
         {
             "id": 9,
-            "name": "Work4Germany Fellows"
+            "name": "Work4Germany Fellows",
+            "group": 0
         }
     ]
 }
