@@ -6,7 +6,7 @@ people = {};
 let line;
 let liner = new readlines('input/people.csv');
 
-let ignoreTeams = [];
+let ignoreTeams = [8,9];
 
 while (line = liner.next()) {
     let parts = line.toString('utf8').split(',');
