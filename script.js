@@ -1,6 +1,6 @@
 const fs = require('fs');
 const readlines = require('n-readlines');
-// const teams = require('input/teams.json').teams;
+const teams = require('./input/teams.json').teams;
 
 people = {};
 let line;
@@ -14,6 +14,7 @@ while (line = liner.next()) {
     let team = Number(parts[0]);
     people[id] = {
         "in_team": team,
+        "in_corona_group": teams.filter(t => t.id === team).map(t => t.group)[0],
         "id": id,
         "name": parts[3],
         "gender": parts[4],
