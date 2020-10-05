@@ -74,6 +74,7 @@ const findSuitableAdditionToGroup = (peopleAlreadyInGroup) => {
                 candidate.id === pInGroup.id ||
                 candidate.already_met_with.includes(pInGroup.id) ||
                 candidate.in_team === pInGroup.in_team ||
+                candidate.in_corona_group !== pInGroup.in_corona_group ||
                 (groupsMustBeSameGender && candidate.gender !== pInGroup.gender)
             ) {
                 candidateIsSuitable = false;
@@ -158,6 +159,7 @@ for (let i = 0; i < groups.length; i++) {
             if (groupMember1.in_team === groupMember2.in_team ||
                 groupMember1.already_met_with.includes(groupMember2.id) ||
                 groupMember2.already_met_with.includes(groupMember1.id) ||
+                groupMember1.in_corona_group !== groupMember2.in_corona_group ||
                 (groupsMustBeSameGender && groupMember1.gender !== groupMember2.gender)
             ) {
                 console.log("ERROR: " + groupMember1.id + ' and ' + groupMember2.id + ' in group ' + group);
