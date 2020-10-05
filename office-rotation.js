@@ -1,3 +1,4 @@
+// UNFINISHED: doesn't quite work yet, but turns out to be obsolete because the shared flat situation dictates only one possible configuration anyway :)
 
 let teams = {};
 // only consider T4G fellow teams at this point
